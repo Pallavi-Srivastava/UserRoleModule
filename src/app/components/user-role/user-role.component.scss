@@ -1,0 +1,110 @@
+.container {
+    background-color: white;
+    border: 2px solid transparent;
+    width: 80%;
+    margin: auto;
+}
+
+.frame {
+    margin: 80px 40px;
+}
+
+.row-content {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    align-items: center;
+}
+
+.heading {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 80px 0px 80px;
+    font: normal normal bold 21px Roboto;
+    border-bottom: 2px solid rgb(182, 177, 177);
+    opacity: 2px;
+}
+
+img {
+    margin-right: 3px;
+}
+
+.users {
+    font: normal normal normal 16px Roboto;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    margin: 10px 80px;
+}
+
+.users-th {
+    font: normal normal normal 20px Roboto;
+}
+
+.users-td,
+.users-th {
+    border: 1px solid #cdd4ea;
+    padding: 8px;
+}
+
+.users-tr:nth-child(even) {
+    background-color: #cdd4ea;
+}
+
+.users-tr:nth-child(odd) {
+    background-color: #e8ebf5;
+}
+
+select {
+    width: 80%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    font: normal normal normal 16px Roboto;
+    letter-spacing: 0px;
+    color: #42515f;
+    background-color: transparent;
+}
+
+.users-tr:hover {
+    background-color: white;
+}
+
+.users-th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4472c4;
+    color: white;
+}
+
+button {
+    font-size: 18px;
+    font-family: Roboto;
+    letter-spacing: 0px;
+    color: rgb(240, 239, 239);
+    opacity: 1;
+    background: transparent;
+    border: none;
+    min-width: 70px;
+    padding: 4px;
+    border: 1px solid rgb(5, 127, 209);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.editButton {
+    border: none;
+    background-color: rgb(5, 127, 209);
+}
+
+.submitButton {
+    margin-left: 10px;
+    border: none;
+    background-color: rgb(5, 127, 209);
+}
+
+.button:hover {
+    background-color: #0242b1;
+    border-radius: 3px;
+}

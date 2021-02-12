@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="frame">
+        <div class="row-content">
+            <span class="heading"><img src="../../../assets/add-24px.svg">Add User Designation</span>
+        </div>
+        <div class="row-content">
+            <form class="form" action="#" [formGroup]="productForm">
+                <table class="users">
+                    <thead class="users-thread">
+                        <th class="users-th">User Id</th>
+                        <th class="users-th">User Name</th>
+                        <th class="users-th">Designation</th>
+                        <th class="users-th">Reporting Manager</th>
+                        <th class="users-th">Action</th>
+                    </thead>
+                    <tr *ngFor="let record of userRecord" class="users-tr">
+                        <td class="users-td">{{record.userId}}</td>
+                        <td class="users-td">{{record.userName}}</td>
+                        <td class="users-td">
+                            <select name="designation" id="designation" [(ngModel)]="userUpdateObj.designation" [ngModelOptions]="{standalone: true}">
+                                <option value="undefined" selected disabled>Select Role</option>
+                                <option *ngFor="let option of userRole" value="{{option.id}}">{{option.role}}</option>
+                            </select>
+                        </td>
+                        <td class="users-td">
+                            <select name="manager" id="manager" [(ngModel)]="userUpdateObj.manager" [ngModelOptions]="{standalone: true}">
+                                <option value="undefined" selected disabled>Select Manager</option>
+                                <option *ngFor="let update of userUpdate" value="{{update?.userId}}">{{update?.userName}}</option>
+                            </select>
+                        </td>
+                        <td class="users-td">
+                            <button type="submit" (click)="onUpdate(record.userId)" class="button editButton">Edit</button>
+                            <button type="submit" (click)="onSubmit(record.userId)" class="button submitButton">Update</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
