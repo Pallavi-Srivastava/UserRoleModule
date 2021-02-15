@@ -32,7 +32,7 @@ public class UserRoleController {
 	public ResponseEntity<ResponseDTO> getAllRecord() throws UserException {
 		List<UserDetails> records = userService.viewAllRecord();
 		System.out.println("Records"+records);
-		return new ResponseEntity<>(new ResponseDTO(200,"All available user data",records), HttpStatus.OK);
+		return new ResponseEntity<>(new ResponseDTO(200,"OK",records), HttpStatus.OK);
 	}
 		
 	@ApiOperation("To get all role list")
@@ -40,14 +40,14 @@ public class UserRoleController {
 	public ResponseEntity<ResponseDTO> getAllRoleRecord() throws UserException {
 		List<UserRole> role = userService.viewAllRole();
 		System.out.println("Role"+role);
-		return new ResponseEntity<>(new ResponseDTO(200,"All available user role",role), HttpStatus.OK);
+		return new ResponseEntity<>(new ResponseDTO(200,"OK",role), HttpStatus.OK);
 	}
 		
 	@ApiOperation("Update record")
 	@PutMapping("/{id}")
 	public ResponseEntity<ResponseDTO> updateRecordExceptGivenNameAndId(@PathVariable("id")int id,@RequestBody UpdateDetailsDTO userDetailsDTO) throws UserException {
 		UserDetails records = userService.updateUserDetails(id,userDetailsDTO);
-		System.out.println("Updated Records"+records);
-		return new ResponseEntity<>(new ResponseDTO(200,"Record Updated Successfully",records), HttpStatus.OK);
+		System.out.println("Updated Records "+records);
+		return new ResponseEntity<>(new ResponseDTO(200,"OK",records), HttpStatus.OK);
 	}  
 }

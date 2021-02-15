@@ -8,7 +8,7 @@ import com.hm.productclaim.model.UserRole;
 
 public interface IUserService {
 	
-	List<UserDetails> viewAllRecord();
+	List<UserDetails> viewAllRecord() throws UserException;
 	
 	List<UserRole> viewAllRole();
 		

@@ -10,7 +10,10 @@ import com.hm.productclaim.model.UserRole;
 import com.hm.productclaim.repository.UserRepository;
 import com.hm.productclaim.repository.UserRoleRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class UserService implements IUserService{
 	
 	@Autowired
@@ -20,16 +23,19 @@ public class UserService implements IUserService{
 	private UserRoleRepository userRoleRepository;
 
 	@Override
-	public List<UserDetails> viewAllRecord()  {
+	public List<UserDetails> viewAllRecord() throws UserException  {
 		List<UserDetails> userDetails= userRepository.findAll(); 
-		System.out.println("Getting record data from DB : " + userDetails);
+		if (userDetails.isEmpty()) {
+            throw new UserException("Records are not available", UserException.ExceptionType.RECORD_NOT_AVAILABLE);
+        }
+		log.debug("Getting record data from DB : " + userDetails);
          return userDetails;
 	}
 	
 	@Override
 	public List<UserRole> viewAllRole() {
 		List<UserRole> userRole= userRoleRepository.findAll(); 
-		System.out.println("Getting role data from DB : " + userRole);
+		log.debug("Getting record data from DB : " + userRole);
          return userRole;
 	}
 	
@@ -44,6 +50,7 @@ public class UserService implements IUserService{
 		UserDetails userDetails = this.getUserDetailsById(id);
 		userDetails.setDesignation(userDetailsDTO.designation);
 		userDetails.setManager(userDetailsDTO.manager);
+		log.debug("Getting updatedRecord data from DB : " + userDetails);
 		return userRepository.save(userDetails);
 	}
 }
